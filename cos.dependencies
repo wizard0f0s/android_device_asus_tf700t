@@ -3,7 +3,13 @@
    "project": "CyanogenMod",
    "repository": "android_kernel_asus_tf700t",
    "target_path": "kernel/asus/tf700t",
-   "branch": "cm-10.1"
- }
+   "branch": "cm-10.2"
+ },
+ {
+   "project": "TheMuppets",
+   "repository": "proprietary_vendor_asus",
+   "target_path": "vendor/asus",
+   "branch": "cm-10.2"
+ },
 ]
 

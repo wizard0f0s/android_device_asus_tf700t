@@ -35,12 +35,10 @@ TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a9
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
-ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
-ARCH_ARM_USE_NON_NEON_MEMCPY := true
 
 NEED_WORKAROUND_CORTEX_A9_745320 := true
 
@@ -97,5 +95,18 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/asus/tf700t/releasetools/tf7
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/tf700t/recovery/recovery.mk
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_RECOVERY_INITRC := device/asus/tf700t/recovery/init.rc
 BOARD_HAS_SDCARD_INTERNAL := true
+TARGET_RECOVERY_FSTAB := device/asus/tf700t/ramdisk/fstab.cardhu
+RECOVERY_FSTAB_VERSION := 2
+
+# SELINUX Defines
+BOARD_SEPOLICY_DIRS := \
+    device/asus/tf700t/selinux
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    file.te \
+    device.te \
+    domain.te
+
+BOARD_HARDWARE_CLASS := device/asus/tf700t/cmhw/

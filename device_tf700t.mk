@@ -21,18 +21,18 @@ $(call inherit-product-if-exists, vendor/asus/tf700t/tf700t-vendor.mk)
 # Path to overlay files
 DEVICE_PACKAGE_OVERLAYS += device/asus/tf700t/overlay
 
-# Files needed for boot image
+# Files needed for boot/recovery image
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.cardhu.rc:root/init.cardhu.rc \
     $(LOCAL_PATH)/ramdisk/init.cardhu.keyboard.rc:root/init.cardhu.keyboard.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.cardhu.rc:root/ueventd.cardhu.rc \
     $(LOCAL_PATH)/ramdisk/init.cardhu.usb.rc:root/init.cardhu.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.cardhu.cpu.rc:root/init.cardhu.cpu.rc \
-    $(LOCAL_PATH)/ramdisk/fstab.cardhu:root/fstab.cardhu
+    $(LOCAL_PATH)/ramdisk/fstab.cardhu:root/fstab.cardhu \
+    $(LOCAL_PATH)/recovery/init.recovery.cardhu.rc:root/init.recovery.cardhu.rc
 
 # Prebuilt configuration files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
@@ -116,12 +116,6 @@ PRODUCT_COPY_FILES += \
 # GPS configuration
 PRODUCT_COPY_FILES += \
     device/asus/tf700t/configs/gps.conf:system/etc/gps.conf
-
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-    system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-    system/extras/bugmailer/send_bug:system/bin/send_bug
 
 # Inherit tablet dalvik settings
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
