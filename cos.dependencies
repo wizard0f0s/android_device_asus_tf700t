@@ -10,6 +10,6 @@
    "repository": "proprietary_vendor_asus",
    "target_path": "vendor/asus",
    "branch": "cm-10.2"
- },
+ }
 ]
 
